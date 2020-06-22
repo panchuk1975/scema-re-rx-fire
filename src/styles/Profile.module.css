@@ -1,0 +1,8 @@
+.conteiner{
+    text-align: center;
+    background-color: green;
+}
+.profileConteiner p{
+    font-size: 16px;
+    background-color: rgb(202, 236, 79);
+}
