@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Profile from "../components/Profile";
 
 const Home = ({
@@ -7,6 +7,7 @@ const Home = ({
   addProfile,
   deleteProfile,
   changeProfile,
+  addProfileThunkCreator,
 }) => {
   return (
     <div>
@@ -16,6 +17,7 @@ const Home = ({
         addProfile={addProfile}
         deleteProfile={deleteProfile}
         changeProfile={changeProfile}
+        addProfileThunkCreator={addProfileThunkCreator}
       />
     </div>
   );

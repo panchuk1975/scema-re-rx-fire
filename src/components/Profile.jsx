@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import s from "../styles/Profile.module.css";
 
-const Profile = ({ profilesArray, newProfile, addProfile, deleteProfile, changeProfile }) => {
+const Profile = ({
+  profilesArray,
+  newProfile,
+  addProfile,
+  deleteProfile,
+  changeProfile,
+  addProfileThunkCreator,
+}) => {
   const [form, setForm] = useState({ ...newProfile });
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.currentTarget.value });
   };
+  profilesArray.sort((a, b) => a.id - b.id);
   return (
     <div>
       <h1 className={s.conteiner}>Profiles</h1>
@@ -29,15 +37,17 @@ const Profile = ({ profilesArray, newProfile, addProfile, deleteProfile, changeP
           required
         />
       </form>
-        <button onClick={() => addProfile(form)}>Submit</button>
+      <button onClick={() => addProfileThunkCreator(form)}>Submit</button>
       {profilesArray.map((profile) => (
-        <div key={profile.firstName} className={s.profileConteiner}>
+        <div key={profile.id} className={s.profileConteiner}>
           <p>
             {profile.id}
             {"."} {profile.firstName} {profile.secondName}
           </p>
           <button onClick={() => deleteProfile(profile.id)}>Delete</button>
-          <button onClick={() => changeProfile(form, profile.id)}>Change</button>
+          <button onClick={() => changeProfile(form, profile.id)}>
+            Change
+          </button>
         </div>
       ))}
     </div>
