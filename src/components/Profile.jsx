@@ -12,7 +12,7 @@ const Profile = ({
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.currentTarget.value });
   };
-  let numberId = null;
+  let numberId = 1;
   let i = 1;
   profilesArray.map((p) => {
     if (p.number !== i) {
@@ -20,12 +20,12 @@ const Profile = ({
       return numberId;
     } else {
       numberId = profilesArray.length + 1;
-    }
+    } 
     i++;
     return p;
   });
   profilesArray.sort((a, b) => a.number - b.number);
-  //console.log(profilesArray);
+  //console.log(numberId);
   return (
     <div>
       <h1 className={s.conteiner}>Profiles</h1>

@@ -45,6 +45,7 @@ export const fetchProfiles = (payload) => ({
 export const addProfileThunkCreator = (newProfile, numberId) => {
   return (dispatch) => {
     profileAPI.addProfile(newProfile, numberId).then((data) => {
+        console.log(numberId)
       dispatch(addProfile({ ...newProfile, number: numberId, id: data.name }));
     });
   };
