@@ -1,23 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Profile from "../components/Profile";
 
 const Home = ({
   profilesArray,
   newProfile,
-  addProfile,
-  deleteProfile,
   changeProfile,
   addProfileThunkCreator,
+  deleteProfileThunkCreator,
+  fetchProfilesThunkCreator,
 }) => {
+  useEffect(() => {
+    fetchProfilesThunkCreator();
+    // eslint-disable-next-line
+  }, []);
   return (
     <div>
       <Profile
         profilesArray={profilesArray}
         newProfile={newProfile}
-        addProfile={addProfile}
-        deleteProfile={deleteProfile}
         changeProfile={changeProfile}
         addProfileThunkCreator={addProfileThunkCreator}
+        deleteProfileThunkCreator={deleteProfileThunkCreator}
       />
     </div>
   );

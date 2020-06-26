@@ -1,10 +1,10 @@
 import Home from "../pages/Home";
 import { connect } from "react-redux";
 import {
-  addProfile,
-  deleteProfile,
   changeProfile,
   addProfileThunkCreator,
+  deleteProfileThunkCreator,
+  fetchProfilesThunkCreator, 
 } from "../redux/profileReducer";
 
 let mapStateToProps = (state) => {
@@ -15,9 +15,9 @@ let mapStateToProps = (state) => {
 };
 
 let HomeConteiner = connect(mapStateToProps, {
-  addProfile,
-  deleteProfile,
   changeProfile,
   addProfileThunkCreator,
+  deleteProfileThunkCreator,
+  fetchProfilesThunkCreator,
 })(Home);
 export default HomeConteiner;
