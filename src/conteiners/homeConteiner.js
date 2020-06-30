@@ -8,11 +8,11 @@ import {
 } from "../redux/profileReducer";
 import Rainbow from "../hocs/Rainbow";
 import { compose } from "redux";
-import { getProfilesArray, getNewProfile } from "../redux/selectors";
+import { getProfilesArraySelector, getNewProfile } from "../redux/selectors";
 
 let mapStateToProps = (state) => {
   return {
-    profilesArray: getProfilesArray(state),
+    profilesArray: getProfilesArraySelector(state),
     newProfile: getNewProfile(state),
   };
 };

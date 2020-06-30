@@ -26,7 +26,6 @@ const Profile = ({
     return p;
   });
   profilesArray.sort((a, b) => a.number - b.number);
-  //console.log(numberId);
   return (
     <div>
       <h1 className={s.conteiner}>Profiles</h1>
