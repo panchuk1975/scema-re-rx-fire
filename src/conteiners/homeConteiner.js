@@ -4,20 +4,26 @@ import {
   changeProfile,
   addProfileThunkCreator,
   deleteProfileThunkCreator,
-  fetchProfilesThunkCreator, 
+  fetchProfilesThunkCreator,
 } from "../redux/profileReducer";
+import Rainbow from "../hocs/Rainbow";
+import { compose } from "redux";
+import { getProfilesArray, getNewProfile } from "../redux/selectors";
 
 let mapStateToProps = (state) => {
   return {
-    profilesArray: state.profiles.profilesArray,
-    newProfile: state.profiles.newProfile,
+    profilesArray: getProfilesArray(state),
+    newProfile: getNewProfile(state),
   };
 };
 
-let HomeConteiner = connect(mapStateToProps, {
-  changeProfile,
-  addProfileThunkCreator,
-  deleteProfileThunkCreator,
-  fetchProfilesThunkCreator,
-})(Home);
+let HomeConteiner = compose(
+  Rainbow,
+  connect(mapStateToProps, {
+    changeProfile,
+    addProfileThunkCreator,
+    deleteProfileThunkCreator,
+    fetchProfilesThunkCreator,
+  })
+)(Home);
 export default HomeConteiner;

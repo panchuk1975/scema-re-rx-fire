@@ -12,6 +12,7 @@ const Profile = ({
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.currentTarget.value });
   };
+  //-------------------------Count number---------------------------//
   let numberId = 1;
   let i = 1;
   profilesArray.map((p) => {
@@ -20,7 +21,7 @@ const Profile = ({
       return numberId;
     } else {
       numberId = profilesArray.length + 1;
-    } 
+    }
     i++;
     return p;
   });
@@ -53,6 +54,9 @@ const Profile = ({
         Submit
       </button>
       {profilesArray.map((profile) => {
+        //-----------------------Simply Index of Array----------------------//
+        //var index = profilesArray.findIndex((el) => el.id === profile.id);
+        //console.log(index);
         return (
           <div key={profile.number} className={s.profileConteiner}>
             <p>
